@@ -29,7 +29,7 @@ extension UIColor {
         let numComponents = CGColorGetNumberOfComponents(cgColorRef)
         if numComponents == 4 {
             let components = CGColorGetComponents(cgColorRef)
-            let color = UIColor.getTranslucentColor(RGB: (components[0] * 255, components[1] * 255, components[2] * 255))
+            let color = UIColor.getTranslucentColor(R: components[0] * 255, G: components[1] * 255, B: components[2] * 255)
             return color
         }else {
             return nil
@@ -38,10 +38,10 @@ extension UIColor {
     
     /** All the three values should over 40 */
     /** If you know what the UIColor values are, this will be what they will look like on screen when run*/
-    class func getTranslucentColor(RGB rgb: (CGFloat, CGFloat, CGFloat)) -> UIColor {
-        let newR = self.getTranslucentToDesign(value: rgb.0)
-        let newG = self.getTranslucentToDesign(value: rgb.1)
-        let newB = self.getTranslucentToDesign(value: rgb.2)
+    class func getTranslucentColor(R r: CGFloat, G g: CGFloat, B b: CGFloat) -> UIColor {
+        let newR = self.getTranslucentToDesign(value: r)
+        let newG = self.getTranslucentToDesign(value: g)
+        let newB = self.getTranslucentToDesign(value: b)
         
         return UIColor(red: newR, green: newG, blue: newB, alpha: 1)
     }
